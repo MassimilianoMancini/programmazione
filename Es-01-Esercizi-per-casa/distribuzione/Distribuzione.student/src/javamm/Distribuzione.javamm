@@ -1,0 +1,37 @@
+int frequenza(int [] a) {
+	int i = 1;
+	while (i < a.length && a[i] == a[0]) {
+		i = i + 1;
+	}
+	return i;
+}
+
+boolean uniforme(int [] a, int d) {
+	if ( (d==1) || (a.length % d != 0) ) return false;
+	
+	
+	for (int i = d; i < a.length; i=i+d) {
+		if (a[i] != a[i+d-1]) return false;
+		if ((i + d < a.length) && (a[i] == a[i+d]) ) return false;
+	}
+	return true;
+}
+
+int [] distribuisci (int [] a , int d ) {
+	int n = a . length ;
+	int [] r = new int[ n ];
+	for (int i = 0; i < n /d ; i ++) {
+		for (int j = 0; j < d ; j ++) { 
+			r[ i + j * n/d ] = a [i *d ];
+		}
+	}
+	return r ;
+}
+	
+int[] distribuisci(int[] a) {
+	int d = frequenza(a);
+	if (uniforme(a, d)) {
+ 		return (distribuisci(a, d));
+	}
+	return a;
+}

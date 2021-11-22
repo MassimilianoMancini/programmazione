@@ -1,10 +1,11 @@
-
 int [] riarrangia (int [] a) {
+	
 	int [] r = new int[a.length];
 	int i = 0;
 	int j = 0;
 	int k = 0;
 	boolean negative = true;
+	
 	while (k < a.length) {
 		if (negative) {
 			if (a[i] < 0) {
@@ -30,6 +31,5 @@ int [] riarrangia (int [] a) {
 			}
 		}
 	}
-		
 	return r;
 }

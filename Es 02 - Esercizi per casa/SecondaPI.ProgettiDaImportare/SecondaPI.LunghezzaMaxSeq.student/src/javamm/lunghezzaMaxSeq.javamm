@@ -1,0 +1,15 @@
+int lunghezzaMaxSeq(char[] a, int posizione, char c, int nc) {
+	int ncMax = 0;
+	if (posizione == a.length)
+		ncMax = nc;
+	else {
+		posizione++;
+		ncMax = lunghezzaMaxSeq(a, posizione, c, (a[posizione - 1] == c) ? ++nc : 0);
+		if(ncMax < nc) ncMax = nc;
+	}
+	return ncMax;
+}
+
+int lunghezzaMaxSeq(char[] a, char c) {
+	return lunghezzaMaxSeq(a, 0, c, 0);
+}

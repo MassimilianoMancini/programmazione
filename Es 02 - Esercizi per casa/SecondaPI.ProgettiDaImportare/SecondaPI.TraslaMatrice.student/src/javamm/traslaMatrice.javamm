@@ -1,0 +1,10 @@
+int[][] traslaMatrice(int[][] T, int y) {
+	y = T.length + y % (T.length);
+	int[][] matriceTraslata = new int[T.length][T[0].length];
+	for (int i = 0; i < T.length; i++) {
+		for (int j = 0; j < T[0].length; j++) {
+			matriceTraslata[(i + y) % T.length][j] = T[i][j];
+		}
+	}
+	return matriceTraslata;
+}

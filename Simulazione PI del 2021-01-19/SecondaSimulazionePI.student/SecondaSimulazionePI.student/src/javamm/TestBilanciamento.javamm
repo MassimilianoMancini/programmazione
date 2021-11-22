@@ -1,0 +1,14 @@
+boolean testBilanciamentoRicorsivo(int[] mioArray, int i, int j) {
+	if(i > j) return true;
+	if (mioArray[i] + mioArray[j] == mioArray[0] + mioArray[mioArray.length - 1])
+		return testBilanciamentoRicorsivo(mioArray, i + 1, j - 1);
+	return false;
+}
+
+boolean testBilanciamento(int[] mioArray) {
+	if ((mioArray.length == 0) || (mioArray.length % 2 != 0))
+		return false;
+	if(mioArray.length == 2) return (mioArray[0] == mioArray[1]);
+	return (testBilanciamentoRicorsivo(mioArray, 1, mioArray.length - 2));
+}
+

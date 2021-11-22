@@ -1,0 +1,44 @@
+int[] copiaArray (int[] b) {
+	
+	// Deep copy dell'array di input.
+	int[] copia = new int[b.length];
+	for (int i=0; i<b.length; i++) copia[i]=b[i];
+	return copia;
+	
+}
+ 
+void selectionSort(int [] a) {
+	
+	int i, j, indiceProssimoMinimo, min, temp;
+	for (i = 0; i < a.length - 1; i++) {
+		min = a[i];
+		indiceProssimoMinimo = i;
+		for (j = i + 1; j < a.length; j++) {
+			if (a[j] < min) {
+				min = a[j];
+				indiceProssimoMinimo = j;
+			}
+		}
+		temp = a[i];
+		a[i] = a[indiceProssimoMinimo];
+		a[indiceProssimoMinimo] = temp;
+	}
+}
+
+int[] frequences(int[] a) {
+
+	int[] b = copiaArray(a);
+	selectionSort(b);
+	int[] freq = new int[b.length];
+	
+	int k = 0;
+	freq[0] = 1;
+	for (int i = 1; i < b.length; i++) {
+		if(b[i - 1] == b[i]) freq[k]++; 
+		else freq[++k]++;
+	}
+	int[] out = new int[k+1];
+	for (int i = 0; i < k+1; i++)
+		out[i] = freq[i];
+	return out;
+}

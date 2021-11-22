@@ -1,0 +1,14 @@
+boolean accoppiata(char[] A, int i, int j) {
+	if(j == A.length) return true;
+	if (A[i] == A[j]) {
+		return accoppiata(A, i + 1, j + 1);
+	} else
+		return false;
+
+}
+
+boolean accoppiata(char[] A) {
+	if(A.length() % 2 == 1) return false;
+	return accoppiata(A, 0, A.length / 2);
+
+}
