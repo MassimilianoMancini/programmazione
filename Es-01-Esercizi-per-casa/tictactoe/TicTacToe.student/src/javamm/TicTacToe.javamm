@@ -4,21 +4,15 @@ boolean checkDiag(int[][] a) {
 	boolean cercaUnoDiagB = true, cercaDueDiagB = true;
 
 	for (int i = 0; i < a.length; i++) {
-		// Ricerca sulla prima diagonale (A)
 		if(a[i][i] != 1) cercaUnoDiagA = false;
 		if(a[i][i] != 2) cercaDueDiagA = false;
 
-		// Ricerca sulla seconda diagonale (B)
 		if(a[a.length - i - 1][i] != 1) cercaUnoDiagB = false;
 		if(a[a.length - i - 1][i] != 2) cercaDueDiagB = false;
-
-		// Se tutte le variabili sono false vuole dire che nessuna delle due diagonali 
-		// contiene tutti 1 o tutti 2, quindi restituisco false.		
+	
 		if(!cercaUnoDiagA && !cercaDueDiagA && !cercaUnoDiagB && !cercaDueDiagB) return false;
 
 	}
-	// Se arrivo ad eseguire questa istruzione vuol dire che almeno una diagonale
-	// contiene tutti 1 o tutti 2, quindi restituisco true.
 	return true;
 }
 
@@ -29,19 +23,15 @@ boolean checkRiga(int[][] a) {
 	for (int i = 0; i < a.length; i++) {
 
 		for (int j = 0; j < a.length; j++) {
-			// Verifico se la riga i contiene tutti 1 o tutti 2
 			if(a[i][j] != 1) cercaUnoRiga = false;
 			if(a[i][j] != 2) cercaDueRiga = false;
 		}
-		// Se la riga i contiene tutti 1 o tutti 2 restituisco true.
 		if(cercaUnoRiga || cercaDueRiga) return true;
 
-		// Altrimenti continuo la ricerca nella riga successiva
 		cercaUnoRiga = true;
 		cercaDueRiga = true;
 	}
-	// Se arrivo ad eseguire questa istruzione vuol dire che nessuna riga 
-	// contiene tutti 1 o tutti 2, quindi restituisco false.
+
 	return false;
 }
 
@@ -52,19 +42,17 @@ boolean checkColonna(int[][] a) {
 	for (int i = 0; i < a.length; i++) {
 
 		for (int j = 0; j < a.length; j++) {
-			// Verifico se la colonna i contiene tutti 1 o tutti 2
+
 			if(a[j][i] != 1) cercaUnoColonna = false;
 			if(a[j][i] != 2) cercaDueColonna = false;
 		}
-		// Se la colonna i contiene tutti 1 o tutti 2 restituisco true.
+
 		if(cercaUnoColonna || cercaDueColonna) return true;
 
-		// Altrimenti continuo la ricerca nella colonna successiva
 		cercaUnoColonna = true;
 		cercaDueColonna = true;
 	}
-	// Se arrivo ad eseguire questa istruzione vuol dire che nessuna colonna 
-	// contiene tutti 1 o tutti 2, quindi restituisco false.
+
 	return false;
 }
 
