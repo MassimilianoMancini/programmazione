@@ -1,36 +1,9 @@
-/*
- * Scrivere un metodo, chiamato unique,
- * che dato in input un array a di numeri
- * interi positivi (eventualmente vuoto), 
- * restituisca l'array (eventualmente vuoto)
- * contenente gli elementi di a che appaiono
- * una sola volta in a stesso, nello stesso ordine
- * con cui essi appaiono in a.
- * 
- * ESEMPI
- * Input: {32,23,12,23,15,32}
- * Output: {12,15}
- * 
- * Input: {127,34,45,56,34,127,23,45,12,56,23}
- * Output: {12}
- * 
- * Input: {20,11,15,41,23}
- * Output: {20,11,15,41,23}
- * 
- * Input: {127,34,45,56,34,127,23,45,12,56,23,12}
- * Output: {}
-
- * Input: {}
- * Output: {}
- */
 int[] unique(int[] a) {
 	int contaUnici = 0;
 	for (int i = 0; i < a.length; i++) {
-
 		if (a[i] > 0) {
 			boolean trovato = false;
 			for (int j = i + 1; j < a.length; j++) {
-
 				if (a[j] == a[i]) {
 					a[j] = -7;
 					trovato = true;
