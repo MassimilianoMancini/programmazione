@@ -1,24 +1,23 @@
-// a = {1, 6, 5, 8, 6, 6, 8, 5, 3, 1, 6, 8}: {2, 1, 2, 4, 3}
-int [] bubbleSort(int[] f, int[] d, int dl) {
-	int n = dl - 1;
+int [] bubbleSort(int[] d, int[] f) {
+	int n = f.length - 1;
 	int lastSwapped = n;
 	while (lastSwapped > 0) {
+		lastSwapped = 0;
 		for (int i = 0; i < n; i++) {
-			if (d[i] > d[i+1]) {
+			if (d[i] > d[i + 1]) {
 				int k = d[i];
-				d[i] = d[i+1];
-				d[i+1] = k;
+				d[i] = d[i + 1];
+				d[i + 1] = k;
 				k = f[i];
-				f[i] = f[i+1];
-				f[i+1] = k;
+				f[i] = f[i + 1];
+				f[i + 1] = k;
 				lastSwapped = i;
 			}
 		}
 		n = lastSwapped;
 	}
-	
-	return null;
-	
+
+	return f;
 }
 
 int[] frequences(int[] a) {
@@ -42,5 +41,11 @@ int[] frequences(int[] a) {
 			f[dl++]++;
 		}
 	}
-	return bubbleSort(d, f, dl);
+	int [] dt = new int[dl];
+	int [] ft = new int[dl];
+	for (int i = 0; i < dl; i++) {
+		ft[i] = f[i];
+		dt[i] = d[i];
+	}
+	return bubbleSort(dt, ft);
 }
