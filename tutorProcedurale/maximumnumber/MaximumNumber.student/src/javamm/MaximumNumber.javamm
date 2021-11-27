@@ -1,3 +1,20 @@
+// a = {7, 4, 2, 9, 3, 5, 8, 1, 7, 5} e k = 4: 9875
+// j = 4
+// i = 0..6 a[6] = 8
 long maximumNumber(int[] a, int k) {
-	return 0;
+	long r = 0;
+	int m = 0;
+	int idx = 0;
+	for (int j = k; j > 0; j--) {
+		r = r * 10;
+		m = 0;
+		for (int i = idx; i <= a.length - j; i++) {
+			if (m < a[i]) {
+				m = a[i];
+				idx = i + 1;
+			}
+		}
+		r = r + m;
+	}
+	return r;
 }
