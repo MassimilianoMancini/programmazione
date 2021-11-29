@@ -13,7 +13,6 @@ int [] revBubbleSort(int[] a) {
 		}
 		n = lastSwapped;
 	}
-
 	return a;
 }
 

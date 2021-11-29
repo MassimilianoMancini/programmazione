@@ -6,6 +6,5 @@ boolean armstrong(int n) {
 		t = t + (int) Math.pow(m % 10, d);
 		m = m / 10;	
 	}
-	
 	return (n == t);
 }
