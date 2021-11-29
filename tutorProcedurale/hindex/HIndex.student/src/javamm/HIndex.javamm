@@ -19,7 +19,7 @@ int [] revBubbleSort(int[] a) {
 int hIndex(int[] a) {
 	a = revBubbleSort(a);
 	int i = 0;
-	while (i <= a.length && i < a[i]) {
+	while (i < a.length && i < a[i]) {
 		i++;
 	}
 	return i;
