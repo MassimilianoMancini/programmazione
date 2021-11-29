@@ -1,0 +1,27 @@
+int [] revBubbleSort(int[] a) {
+	int n = a.length - 1;
+	int lastSwapped = n;
+	while (lastSwapped > 0) {
+		lastSwapped = 0;
+		for (int i = 0; i < n; i++) {
+			if (a[i] < a[i + 1]) {
+				int k = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = k;
+				lastSwapped = i;
+			}
+		}
+		n = lastSwapped;
+	}
+
+	return a;
+}
+
+int hIndex(int[] a) {
+	a = revBubbleSort(a);
+	int i = 0;
+	while (i <= a.length && i < a[i]) {
+		i++;
+	}
+	return i;
+}

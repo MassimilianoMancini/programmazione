@@ -1,0 +1,51 @@
+int [] bubbleSort(int[] d, int[] f) {
+	int n = f.length - 1;
+	int lastSwapped = n;
+	while (lastSwapped > 0) {
+		lastSwapped = 0;
+		for (int i = 0; i < n; i++) {
+			if (d[i] > d[i + 1]) {
+				int k = d[i];
+				d[i] = d[i + 1];
+				d[i + 1] = k;
+				k = f[i];
+				f[i] = f[i + 1];
+				f[i + 1] = k;
+				lastSwapped = i;
+			}
+		}
+		n = lastSwapped;
+	}
+
+	return f;
+}
+
+int[] frequences(int[] a) {
+	int [] d = new int[a.length];
+	int [] f = new int[a.length];
+	int dl = 0;
+	boolean found = false;
+	int j = 0;
+	for (int i = 0; i < a.length; i++) {
+		j = 0;
+		found = false;
+		while (j < dl && !found) {
+			if (d[j] == a[i]) {
+				f[j]++;
+				found = true;
+			}
+			j++;
+		}
+		if (!found) {
+			d[dl] = a[i];
+			f[dl++]++;
+		}
+	}
+	int [] dt = new int[dl];
+	int [] ft = new int[dl];
+	for (int i = 0; i < dl; i++) {
+		ft[i] = f[i];
+		dt[i] = d[i];
+	}
+	return bubbleSort(dt, ft);
+}
