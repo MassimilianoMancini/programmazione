@@ -1,0 +1,11 @@
+boolean armstrong(int n) {
+	int d = (int) Math.log10(n) + 1;
+	int t = 0;
+	int m = n;
+	while (m > 0) {
+		t = t + (int) Math.pow(m % 10, d);
+		m = m / 10;	
+	}
+	
+	return (n == t);
+}
