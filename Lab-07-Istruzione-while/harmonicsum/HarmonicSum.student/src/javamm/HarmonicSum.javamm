@@ -6,7 +6,7 @@ int harmonicSum(int x) {
 	while (s < x) {
 		n++;
 		while (i < n) {
-			h += 1.0 / (double) i++;		
+			h += 1.0 / (double) i++;	
 		}
 		s += h;		
 	} 
