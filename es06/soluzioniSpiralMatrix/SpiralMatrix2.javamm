@@ -1,0 +1,35 @@
+
+int[] spiralMatrix(int n, int x) {
+	
+	int[][] S = new int[n][n];
+	int i=0, j=0;
+	int conta=1;
+	// Ciclo infinito (termina quando eseguo una istruzione di return)
+	while (true) {
+	
+		S[i][j]=conta; 	// Inserisco l'elemento nella matrice S.
+		
+		// Questa condizione prima o poi sarà vera, poichè da 
+		// specifiche il numero x è sempre compreso fra 1 e n*n.
+		if (conta==x) return {i,j};
+		
+		conta++;
+		
+		// Se non posso spostarmi verso l'alto <-- !((i>0) && (S[i-1][j]==0))
+		// ma posso spostarmi verso destra <-- (j<S.length-1) && (S[i][j+1]==0)
+		// allora mi sposto verso destra
+		if (!((i>0) && (S[i-1][j]==0)) && (j<S.length-1) && (S[i][j+1]==0)) j++;
+		else
+		// Se posso spostarmi verso il basso <-- (i<S.length-1) && (S[i+1][j]==0)
+		// allora mi sposto verso il basso
+		if ((i<S.length-1) && (S[i+1][j]==0)) i++;
+		else
+		// Se posso spostarmi verso sinistra <-- (j>0) && (S[i][j-1]==0)
+		// allora mi sposto verso sinistra
+		if ((j>0) && (S[i][j-1]==0)) j--;
+		else
+		// Se posso spostarmi verso l'alto <-- (i>0) && (S[i-1][j]==0)
+		// allora mi sposto verso l'alto 
+		if ((i>0) && (S[i-1][j]==0)) i--; 
+	}	
+}

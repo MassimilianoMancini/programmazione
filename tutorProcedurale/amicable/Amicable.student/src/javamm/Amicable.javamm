@@ -1,0 +1,16 @@
+boolean amicable(int a, int b) {
+	int sumOfDivA = 1;
+	int sumOfDivB = 1;
+	for (int i = 2; i <= a/2; i++) {
+		if (a % i == 0) {
+			sumOfDivA += i;
+		}
+	}
+	for (int i = 2; i <= b/2; i++) {
+		if (b % i == 0) {
+			sumOfDivB += i;
+		}
+	}
+	
+	return (sumOfDivA == b && sumOfDivB == a);
+}

@@ -1,0 +1,49 @@
+// SOLUZIONE SENZA L'UTILIZZO DI UNA MATRICE
+int spiralPath(int n, int i) {
+
+	if(i == 1) return (((n*n)+1)/2);
+
+	int contatore = 1;
+	int lunghezzaPath = 1;
+	int valoreElemento=((n*n)+1)/2; // valore dell'elemento centrale della matrice
+
+	while (true) {
+		
+		// spostamento verso l'alto
+		for (int j = 0; j < lunghezzaPath; j++) {
+
+			contatore++;
+			valoreElemento=valoreElemento-n; 
+			if(contatore == i) return valoreElemento;
+		}
+
+		// spostamento verso sinistra
+		for (int j = 0; j < lunghezzaPath; j++) {
+
+			contatore++;
+			valoreElemento=valoreElemento-1;
+			if(contatore == i) return valoreElemento;
+
+		}
+
+		// spostamento verso basso
+		for (int j = 0; j < lunghezzaPath + 1; j++) {
+
+			contatore++;
+			valoreElemento=valoreElemento+n;
+			if(contatore == i) return valoreElemento;
+		}
+
+		// spostamento verso destra
+		for (int j = 0; j < lunghezzaPath + 1; j++) {
+
+			contatore++;
+			valoreElemento=valoreElemento+1;
+			if(contatore == i) return valoreElemento;
+		}
+
+		lunghezzaPath = lunghezzaPath + 2; // nel prossimo path ci saranno 2 passi in più in ciascuna direzione
+	}
+
+}
+

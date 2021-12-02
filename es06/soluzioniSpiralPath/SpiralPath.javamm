@@ -1,0 +1,66 @@
+int[][] creaMatrice(int n) {
+
+	int[][] matrice = new int[n][n];
+	int contatore = 1;
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++)
+			matrice[i][j] = contatore++;
+
+	}
+	return matrice;
+}
+
+// SOLUZIONE CON L'UTILIZZO DI UNA MATRICE DI APPOGGIO
+int spiralPath(int n, int i) {
+
+	int[][] matrice = creaMatrice(n);
+
+	int r = n / 2;
+	int c = n / 2;
+	if(i == 1) return (((n*n)+1)/2); // ritorno l'elemento centrale della matrice
+
+	int contatore = 1;
+	int lunghezzaPath = 1; // numero di passi in una direzione
+	
+	while (true) {
+		
+		// spostamento verso l'alto
+		for (int j = 0; j < lunghezzaPath; j++) {
+
+			r--;
+			contatore++;
+			if(contatore == i) return matrice[r][c];
+		}
+
+		// spostamento verso sinistra
+		for (int j = 0; j < lunghezzaPath; j++) {
+
+			c--;
+			contatore++;
+			if(contatore == i) return matrice[r][c];
+
+		}
+
+		// spostamento verso basso
+		for (int j = 0; j < lunghezzaPath + 1; j++) {
+
+			r++;
+			contatore++;
+			if(contatore == i) return matrice[r][c];
+
+		}
+
+		// spostamento verso destra
+		for (int j = 0; j < lunghezzaPath + 1; j++) {
+
+			c++;
+			contatore++;
+			if(contatore == i) return matrice[r][c];
+		}
+
+		lunghezzaPath = lunghezzaPath + 2; // nel prossimo path ci saranno 2 passi in più in ciascuna direzione
+	}
+
+}
+

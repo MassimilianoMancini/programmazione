@@ -1,0 +1,41 @@
+
+int[] spiralMatrix(int n, int x) {
+
+	int i = 0, j = -1;
+	int conta = 0;
+
+	while (true) {
+
+		// spostamento verso destra di n posizioni
+		for (int k = 0; k < n; k++) {
+			j++;
+			conta++;
+			if(conta == x) return {i, j};
+			
+		}
+
+		// spostamento verso il basso di n-1 posizioni
+		for (int k = 0; k < n - 1; k++) {
+			i++;
+			conta++;
+			if(conta == x) return {i, j};
+		}
+
+		// spostamento verso sinistra di n-1 posizioni
+		for (int k = 0; k < n - 1; k++) {
+			j--;
+			conta++;
+			if(conta == x) return {i, j};
+		}
+
+		// spostamento verso l'alto di n-2 posizioni
+		for (int k = 0; k < n - 2; k++) {
+			i--;
+			conta++;
+			if(conta == x) return {i, j};
+		}
+
+		n = n - 2;
+	}
+
+}
