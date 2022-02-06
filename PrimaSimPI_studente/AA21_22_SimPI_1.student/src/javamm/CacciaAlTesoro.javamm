@@ -1,0 +1,43 @@
+boolean cacciaAlTesoro(char[][] M) {
+
+	int r = 0;
+	int c = 0;
+	int pos;
+
+	while (M[r][c] != 'X' && M[r][c] != ' ') {
+		pos = M[r][c];
+		M[r][c] == ' ';
+
+		switch (pos) {
+			case 'A': if (r == 0) {
+				M[r][c] = M[M.length - 1][c];
+			} else {
+				M[r][c] = M[r - 1][c];
+			}
+			break;
+			case 'B': if (r == M.length - 1) {
+				M[r][c] = M[0][c];
+			} else {
+				M[r][c] = M[r + 1][c];
+			}
+			break;
+			case 'S': if (c == 0)
+				M[r][c] = M[r][M.length - 1];
+			else {
+				M[r][c] = M[r][c - 1];
+
+			}
+			break;
+			case 'D': if (c == M.length - 1) {
+				M[r][c] = M[r][0];
+			} else
+				M[r][c] = M[r][c + 1];
+			break;
+			case 'T': return false;
+		}
+
+	}
+
+	return M[r][c] == 'X';
+}
+
