@@ -1,0 +1,17 @@
+// Consegna 1: obbligatoria
+int[][] ruota(int[][] S, int[] r) {
+
+	return null;
+}
+
+// Consegna 2: facoltativa
+boolean controllaVincita(int[][] S) {
+
+	return false;
+}
+
+// Consegna 3: facoltativa
+boolean partitaCompleta(int[][] S, int[] r, int k) {
+
+	return false;
+}

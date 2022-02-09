@@ -1,4 +1,4 @@
-int [] revBubbleSort(int[] a) {
+int[] revBubbleSort(int[] a) {
 	int n = a.length - 1;
 	int lastSwapped = n;
 	while (lastSwapped > 0) {
